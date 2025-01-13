@@ -1,0 +1,15 @@
+class Generic<T>{
+    public  Set<T> removeDuplicatesWithGenerics(T[] dataList) {
+        Set<T> uniques = new HashSet();
+        for(T data : dataList) {
+            uniques.add(data);
+        }
+
+        T[] arr = dataList;
+        AtomicInteger index = new AtomicInteger();
+        uniques.forEach(k -> {
+            arr[index.getAndIncrement()]=k;
+        });
+        return uniques;
+    }
+}
